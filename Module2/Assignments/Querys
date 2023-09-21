@@ -1,0 +1,42 @@
+1. select distinct job from emp;
+2. select * from emp order by deptno asc, job desc;
+3. select job from emp order by job desc;
+4. select * from emp where hiredate < ’01/01/1981’;
+5. select * from emp order by sal desc;
+6. select mgr from emp where empno=’7369’;
+7. select * from emp where comm > sal;
+8. select * from emp where job = ‘clerk’ or job = ‘analyst’ order by empno desc;
+9. select * from emp where sal>22000 and sal<45000;
+10. select ename from emp where ename like ’S%’ and length(ename) = 5;
+11. select * from emp where empno not like ’78%’;
+12. select * from emp where job = ‘clerk’ and deptno = ’20’;
+13. select * from emp w, emp m where w.mgr = m.empno and w.hiredate < m.hiredate;
+14. select * from emp e, dept d where d.deptno=20 and e.deptno = d.deptno and e.job in (select e.job from emp,dept d where e.deptno=d.deptno and d.deptno=10);
+15. select * from emp where sal in ( select sal from emp where( ename=‘Smith’ or ename-‘ford’)) order by sal desc;
+16. select * from emp WHERE Job in (SELECT Job FROM emp WHERE (Ename = 'SMITH' or Ename = 'ALLEN'))
+17. select * from emp WHERE Deptno = 10 and job NOT IN (SELECT job FROM emp WHERE Deptno = 20 )
+18. select max(sal) from emp;
+19. select * from emp where sal in (select max(sal) from emp) 
+20. select SUM(Sal) from emp WHERE job = 'MANAGER'
+21. select * from emp where ename=‘%A%’;
+22. select * from emp WHERE Sal IN(SELECT MIN(Sal) FROM emp GROUP by Job) ORDER BY Sal ASC
+23. select * from emp where sal > (select sal from emp where ename=‘Blake’);
+24. reate view myview as SELECT emp.Ename, emp.Job, emp.Deptno, dept.DeptNo,dept.LOC from emp,dept WHERE emp.Deptno = dept.DeptNo
+25. DELIMITER //
+CREATE PROCEDURE selectdata(INOUT Mydeptno int)
+BEGIN
+SELECT emp.Ename,dept.Dname FROM emp,dept WHERE emp.Deptno = Mydeptno;
+END //
+26. alter table student add pin bigint(8);
+27. ALTER TABLE student MODIFY COLUMN Sname VARCHAR(40)
+28. DELIMITER
+$$
+CREATE TRIGGER before_salary_update BEFORE UPDATE ON
+emp FOR EACH ROW
+BEGIN
+INSERT INTO emp_log
+SET Action 	= 'New Salary',
+New_Salary	= new.Sal,
+Emp_id		= old.Empno;
+END
+$$
