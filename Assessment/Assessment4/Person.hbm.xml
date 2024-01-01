@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.model.Person" table="PERSON">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="firstname" type="java.lang.String">
+            <column name="Firstname" />
+        </property>
+        <property name="lastname" type="java.lang.String">
+            <column name="Lastname" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="Email" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="Phone" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="Gender" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="Password" />
+        </property>
+    </class>
+</hibernate-mapping>
