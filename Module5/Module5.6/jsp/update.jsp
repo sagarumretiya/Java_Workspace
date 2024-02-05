@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Spring MVC ORM</title>
+</head>
+<body>
+
+<jsp:include page="header.jsp"/>
+	
+		<form action="update" method="post" name="update">
+			
+				
+			<p>
+				<input type="hidden" name="id" value="${p.id}">
+			</p>
+			
+			<p>
+				Enter Name:<input type="text" name="name" value="${p.name}">
+			</p>
+			
+			<p>
+				Enter Address:<input type="text" name="address" value="${p.address}">
+			</p>
+			
+			<p>
+				<input type="submit" value="update">
+			</p>
+			
+		</form>
+		
+<jsp:include page="footer.jsp"/>
+
+</body>
+</html>
